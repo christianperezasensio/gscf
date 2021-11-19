@@ -5,7 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
+import static java.util.Collections.nCopies;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatorTest {
@@ -38,5 +40,17 @@ public class CalculatorTest {
                 new Room(5, 5, 5),
                 new Room(1, 1, 5),
                 new Room(8, 8, 8))));
+    }
+
+    @Test
+    void getDuplicateRooms() {
+        Calculator calculator = new Calculator();
+        assertEquals(Set.of(
+                new Room(8, 8, 8)),
+                calculator.getDuplicateRooms(nCopies(2, new Room(8, 8, 8))));
+
+        assertTrue(calculator.getDuplicateRooms(Arrays.asList(
+                new Room(5, 5, 5),
+                new Room(1, 1, 5))).isEmpty());
     }
 }

@@ -20,8 +20,13 @@ public class Wallpaper {
         List<Room> rooms = listRooms(input);
         System.out.println("Total wallpaper needed: " + calculator.calculateTotalWallpaper(rooms));
 
-        System.out.println("Cubic rooms: ");
+        System.out.println("Cubic rooms:");
         for (Room room : calculator.getCubicShapedRooms(rooms)) {
+            System.out.println(room);
+        }
+
+        System.out.println("Duplicate rooms:");
+        for (Room room : calculator.getDuplicateRooms(rooms)) {
             System.out.println(room);
         }
     }

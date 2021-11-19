@@ -2,9 +2,7 @@ package com.gscf.assessment.math;
 
 import com.gscf.assessment.model.Room;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Calculator {
@@ -20,7 +18,8 @@ public class Calculator {
                 .collect(Collectors.toList());
     }
 
-    public List<Room> getDuplicateRooms(List<Room> rooms) {
-        throw new UnsupportedOperationException();
+    public Set<Room> getDuplicateRooms(List<Room> rooms) {
+        Set<Room> uniques = new HashSet<>();
+        return rooms.stream().filter(room -> !uniques.add(room)).collect(Collectors.toSet());
     }
 }
