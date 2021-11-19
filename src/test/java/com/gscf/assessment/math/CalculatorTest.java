@@ -8,7 +8,8 @@ import java.util.List;
 import java.util.Set;
 
 import static java.util.Collections.nCopies;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CalculatorTest {
 
@@ -26,7 +27,7 @@ public class CalculatorTest {
     @Test
     void getCubicShapedRooms() {
         assertEquals(List.of(
-                new Room(5, 5, 5)),
+                        new Room(5, 5, 5)),
                 new Calculator().getCubicShapedRooms(Arrays.asList(
                         new Room(5, 5, 5),
                         new Room(1, 1, 5))));
@@ -45,8 +46,7 @@ public class CalculatorTest {
     @Test
     void getDuplicateRooms() {
         Calculator calculator = new Calculator();
-        assertEquals(Set.of(
-                new Room(8, 8, 8)),
+        assertEquals(Set.of(new Room(8, 8, 8)),
                 calculator.getDuplicateRooms(nCopies(2, new Room(8, 8, 8))));
 
         assertTrue(calculator.getDuplicateRooms(Arrays.asList(
